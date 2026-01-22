@@ -1,4 +1,14 @@
--- build Bronze layer
+
+/*
+  Name        :  ddl_bronze_layer.sql
+  Purpose     :  Build Bronze Layer
+  Description :  This will re-build the bronze layer table structure , if already exists , it will DROP the table and recreate it everytime the script is executed. 
+                  
+
+   Caution    :  Please do not run the script before reding the script.  
+                 If executed it will drop the existing tables in Bronze Layer and  you will lose all your work.
+*/
+
 
 IF object_id('bronze.crm_cust_info','U') IS NOT NULL
 drop table bronze.crm_cust_info
