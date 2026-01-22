@@ -1,4 +1,13 @@
--- populate table from the source file
+/*
+  Name        : proc_build_bronze_layer.sql
+  Purpose     :  Build Bronze Layer with data from .csv files
+  Description :  This will re-load the bronze layer tables  from the file data on daily basis , It will first Truncate the table data and load it from the associated .csv file.
+  Parameters  :  Tehse are no parameters passed for this procedure. It will not return any data set                
+
+   Usage    :  EXEC   bronze.load_bronze
+
+*/
+
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze
 AS
