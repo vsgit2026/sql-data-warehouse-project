@@ -8,6 +8,9 @@ It consists of dimension tables and fact tables for specific business metrics.
    
 | column name | data type | description |
 | --- | --- | --- |
+| customer_key | INT	| Surrogate Key uniquely identfying each customer record in the dimension table |
+
+
 
 
    
