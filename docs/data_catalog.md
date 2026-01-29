@@ -6,7 +6,8 @@ It consists of dimension tables and fact tables for specific business metrics.
    Purpose: stores the customer details  enriched with demographic and geographic data
    columns:
    
--column name|data type|description
+| column name | data type | description |
+| --- | --- | --- |
 
 
    
