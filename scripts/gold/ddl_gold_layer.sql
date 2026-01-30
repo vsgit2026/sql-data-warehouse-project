@@ -6,7 +6,6 @@ select
     ci.cst_key as customer_number,
     ci.cst_firstname as first_name,
     ci.cst_lastname as last_name ,
-    la.cntry as countryold,
     COALESCE(la.cntry , 'n/a') country,
     ci.cst_marital_status as marital_status,
     CASE WHEN ci.cst_gndr != 'n/a' THEN ci.cst_gndr  -- CRM is the master for Gender info
