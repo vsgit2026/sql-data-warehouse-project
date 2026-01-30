@@ -1,4 +1,4 @@
-CREATE VIEW gold.dim_customers
+CREATE OR ALTER VIEW gold.dim_customers
 AS
 select 
     ROW_NUMBER() OVER(ORDER BY cst_id ) as customer_key,  -- surrogate_key
@@ -6,7 +6,8 @@ select
     ci.cst_key as customer_number,
     ci.cst_firstname as first_name,
     ci.cst_lastname as last_name ,
-    la.cntry as country,
+    la.cntry as countryold,
+    COALESCE(la.cntry , 'n/a') country,
     ci.cst_marital_status as marital_status,
     CASE WHEN ci.cst_gndr != 'n/a' THEN ci.cst_gndr  -- CRM is the master for Gender info
          ELSE COALESCE(ca.gen,'n/a')
@@ -18,7 +19,6 @@ from silver.crm_cust_info ci
      ON ci.cst_key = ca.cid
      LEFT JOIN silver.erp_loc_a101 la
      ON ci.cst_key = la.cid;
-
     
      CREATE VIEW gold.dim_products
      AS
