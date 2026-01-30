@@ -22,7 +22,7 @@ It consists of dimension tables and fact tables for specific business metrics.
 | create_date |	DATE	| The date and time when the customer record was created in the system|
 
 2. gold.dim_products
-   Purpose: stores the productr details enriched with product data
+   Purpose: stores the products details and their attributes
 
    columns:
    
