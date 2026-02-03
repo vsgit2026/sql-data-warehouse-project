@@ -160,3 +160,32 @@ FROM   cost_segment
 group by cost_range
 order by cost_range desc
 
+-- Group customers into 3 segments based on their spending behaviour
+-- VIP at least12 months of history and spending more that 5000
+-- Regular atleast 12 months of history and spending  5000 or less
+-- New lifespan less than 12 months
+-- find total number of customers by each group 
+          
+WITH cust_spending
+AS
+(
+SELECT customer_key, sum(sales_amount) tot_spending,
+       min(order_date) first_order,
+       max(order_date) last_order,
+       datediff(month,min(order_date),max(order_date)) lifespan
+from gold.fact_sales
+group by customer_key
+)
+SELECT cust_segment, count(customer_key) total_customers
+FROM
+(
+SELECT customer_key, 
+       CASE WHEN tot_spending > 5000  and lifespan >=12 THEN 'VIP'
+            WHEN tot_spending < 5000  and lifespan >=12 THEN 'Regular'
+       ELSE 'New'
+       END cust_segment
+FROM   cust_spending
+)t
+group by cust_segment
+order by total_customers desc
+
