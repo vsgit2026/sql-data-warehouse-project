@@ -1,3 +1,14 @@
+/*
+Purpose : Data Engineering Advance Anaysis using SQL server 
+          shows different types of analysis
+          1. change over time       - sales performance over time
+          2. cumulative analysis    - total sales per month , running total sales over time
+          3. performance analysis   - yearly performance of the products by comparing to the 
+                                      yearly average sales performance and previous year sales
+          4. part to whole analysis - which category contributes the most to the overall sales
+          5. data segmentation      - segment products into cost ranges and count how many products 
+                                      fall into these segments
+*/
 ## Advanced Analytics in Data Engineering 
  # change over time
  # analyze sales performance over time
