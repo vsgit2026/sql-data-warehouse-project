@@ -32,10 +32,10 @@
  order by FORMAT( order_date,'yyyy-MM')
 
 
-# cumulative analysis 
+## cumulative analysis 
 
- -- total sales per month 
- -- running total sales over time 
+# total sales per month 
+# running total sales over time 
 
  select order_date,
         total_sales,
